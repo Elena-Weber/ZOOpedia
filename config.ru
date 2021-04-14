@@ -10,4 +10,5 @@ use Rack::MethodOverride
 
 use ZookeepersController
 use AnimalsController
+use ZoosController
 use SessionsController

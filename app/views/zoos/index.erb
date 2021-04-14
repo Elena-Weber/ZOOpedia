@@ -1,0 +1,9 @@
+<h1>ZOOs:</h1>
+<ul><% @zookeepers.each do |zookeeper|%>
+<li><a href="/zoos/<%= zookeeper.id %>"><%= zookeeper.zoo %></a></li>
+<% end %>
+</ul>
+
+<br><br>
+<a href="/animals"><button>All our animals</button></a>
+<a href="/"><button>Homepage</button></a>
