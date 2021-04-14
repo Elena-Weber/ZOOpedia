@@ -1,0 +1,36 @@
+<h1>Edits for: <%= @animal.animal_type %> <%= @animal.name %></h1>
+<br>
+<form action="/animals/<%= @animal.id %>" method="POST">
+    <input id="hidden" type="hidden" name="_method" value="patch">
+
+    <label for="animal[name]">Edit the animal's name:</label>
+    <input type="text" name="animal[name]" value="<%= @animal.name %>" id="animal_name">
+    <br><br>
+
+    <label for="animal[animal_type]">Edit the animal's type:</label>
+    <input type="text" name="animal[animal_type]" value="<%= @animal.animal_type %>" id="animal_type">
+    <br><br>
+
+    Edit the animal's gender:
+    <input type="radio" name="animal[gender]" id="animal_gender_female" value="Female">
+    <label for="animal_gender_female">Female</label>
+
+    <input type="radio" name="animal[gender]" id="animal_gender_male" value="Male">
+    <label for="animal_gender_male">Male</label>
+    <br><br>
+
+    <label for="animal[age]">Edit the animal's age (in years):</label>
+    <input type="text" name="animal[age]" value="<%= @animal.age %>" id="animal_age">
+    <br><br>
+
+    <label for="animal[likes]">Edit the animal's favorite food:</label>
+    <input type="text" name="animal[likes]" value="<%= @animal.likes %>" id="animal_likes">
+    <br><br>
+
+    <input type="submit" value="Update animal">
+
+    </form>
+    <br><br>
+<a href="/animals"><button>All our animals</button></a>
+<a href="/zoos"><button>All our ZOOs</button></a>
+<a href="/"><button>Homepage</button></a>

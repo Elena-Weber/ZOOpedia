@@ -1,0 +1,22 @@
+<h1><%= @animal.animal_type.capitalize %></h1>
+
+<label for="animal[name]"><h3>Name:</h3></label><%= @animal.name %>
+<label for="animal[gender]"><h3>Gender:</h3></label><%= @animal.gender %>
+<label for="animal[age]"><h3>Age:</h3></label><%= @animal.age %> year(s) old
+<label for="animal[likes]"><h3><%= @animal.name %> likes:</h3></label><%= @animal.likes %>
+<label for="animal[zookeeper][zoo]"><h3>Zoo:</h3></label><%= @animal.zookeeper_id %>
+
+<br><br>
+<a href="/animals/<%= @animal.id %>/edit"><button>Edit</button></a>
+<br><br>
+<form method="POST" action="/animals/<%= @animal.id %>">
+<input id="hidden" type="hidden" name="_method" value="DELETE" />
+<input type="submit" value="Delete" />
+</form>
+<br>
+<a href="/animals/new"><button>Create a new animal</button></a>
+
+<br><br><br>
+<a href="/animals"><button>All our animals</button></a>
+<a href="/zoos"><button>All our ZOOs</button></a>
+<a href="/"><button>Homepage</button></a>

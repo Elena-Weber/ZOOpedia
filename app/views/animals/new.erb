@@ -1,0 +1,35 @@
+<h1>Create a new animal here</h1>
+<form action="/animals" method="POST">
+  <h3>Name:</h3>
+  <input type="text" required="required" name="animal[name]" id="animal_name" placeholder="new animal's name">
+  <br>
+
+  <h3>Type:</h3>
+  <input type="text" required="required" name="animal[animal_type]" id="animal_type" placeholder="new animal's type">
+  <br>
+  
+<h3>Gender:</h3>
+    <input type="radio" name="animal[gender]" id="animal_gender_female" value="Female">
+    <label for="animal_gender_female">Female</label>
+
+    <input type="radio" name="animal[gender]" id="animal_gender_male" value="Male">
+    <label for="animal_gender_male">Male</label>
+    <br>
+
+<h3>Age (in years):</h3>
+  <input type="text" required="required" name="animal[age]" id="animal_age" placeholder="new animal's age">
+  <br>
+
+<h3>The animal likes:</h3>
+  <input type="text" required="required" name="animal[likes]" id="animal_likes" placeholder="animal's favorite food">
+  <br><br>
+
+
+
+  <input type="submit" value="Create a new animal">
+</form>
+<br><br>
+<a href="/animals"><button>All our animals</button></a>
+<a href="/zoos"><button>All our ZOOs</button></a>
+<a href="/"><button>Homepage</button></a>
+
