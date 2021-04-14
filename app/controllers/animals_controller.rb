@@ -44,20 +44,22 @@ class AnimalsController < ApplicationController
     end
 
     patch '/animals/:id' do
-        if logged_in? && @animal.zookeeper_id != current_user.id
+        if logged_in? && @animal.zookeeper_id == current_user.id
     @animal = Animal.find(params[:id])
     @animal.update(params[:animal])
     @animal.save
     redirect to "/animals/#{@animal.id}"
     end
+    end
 
     delete '/animals/:id' do
-        if logged_in? && @animal.zookeeper_id != current_user.id
+        if logged_in? && @animal.zookeeper_id == current_user.id
             @animal = Animal.find_by_id(params[:id])
             @animal.delete
             redirect to '/animals'
         else
             redirect to "/sessions/login"
+        end
     end
 
 end

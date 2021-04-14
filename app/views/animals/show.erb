@@ -4,17 +4,19 @@
 <label for="animal[gender]"><h3>Gender:</h3></label><%= @animal.gender %>
 <label for="animal[age]"><h3>Age:</h3></label><%= @animal.age %> year(s) old
 <label for="animal[likes]"><h3><%= @animal.name %> likes:</h3></label><%= @animal.likes %>
-
-
 <br><br>
+<% if logged_in? && @animal.zookeeper_id == current_user.id %>
 <a href="/animals/<%= @animal.id %>/edit"><button>Edit</button></a>
 <br><br>
 <form method="POST" action="/animals/<%= @animal.id %>">
 <input id="hidden" type="hidden" name="_method" value="DELETE" />
 <input type="submit" value="Delete" />
 </form>
+<% end %>
 <br>
+<% if logged_in? %>
 <a href="/animals/new"><button>Create a new animal</button></a>
+<% end %>
 
 <br><br><br>
 <a href="/animals"><button>All our animals</button></a>
