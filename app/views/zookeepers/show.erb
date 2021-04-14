@@ -3,14 +3,12 @@
 <h3>You have these animals in your zoo:</h3>
 <ul>
   <%@zookeeper.animals.each do |animal|%>
-  <li><a href="/animals/<%= animal.id %>"><%=animal.animal_type.capitalize%></a></li>
+  <li><a href="/animals/<%= animal.id %>"><%= animal.animal_type.capitalize%></a></li>
   <%end%>
 </ul>
 <br>
 
 <a href="/animals/new"><button>Add a new animal</button></a>
-<br><br>
-<a href="/zookeepers/new"><button>Create a new zookeeper</button></a>
 
 <br><br><br>
 <a href="/zoos"><button>All our ZOOs</button></a>
