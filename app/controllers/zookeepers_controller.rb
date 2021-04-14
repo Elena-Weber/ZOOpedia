@@ -5,9 +5,9 @@ class ZookeepersController < ApplicationController
         erb :'/zookeepers/index' 
     end
 
-    get '/signup' do
-        erb :'zookeepers/signup'
-    end
+    # get '/signup' do
+    #     erb :'zookeepers/signup'
+    # end
 
     post '/zookeepers' do
         @zookeeper = Zookeeper.new(params)

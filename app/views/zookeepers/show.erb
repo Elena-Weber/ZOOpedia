@@ -1,5 +1,5 @@
 <h1>Zookeeper: <%=@zookeeper.username%></h1>
-<h3>Zoo: <%=@zookeeper.zoo%></h3>
+<h3>Zoo: <a href="/zoos/<%= @zookeeper.id %>"><%=@zookeeper.zoo%></a></h3>
 <h3>You have these animals in your zoo:</h3>
 <ul>
   <%@zookeeper.animals.each do |animal|%>
@@ -14,3 +14,4 @@
 <a href="/zoos"><button>All our ZOOs</button></a>
 <a href="/animals"><button>All our animals</button></a>
 <a href="/"><button>Homepage</button></a>
+

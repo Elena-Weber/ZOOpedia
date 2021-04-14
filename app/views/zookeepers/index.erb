@@ -1,6 +1,6 @@
 <h1>Zookeepers:</h1>
 <ul><% @zookeepers.each do |zookeeper|%>
-<li><a href="/zookeepers/<%= zookeeper.id %>"><%= zookeeper.username %></a> - <a href="/zookeepers/<%= zookeeper.id %>"><%= zookeeper.zoo %></a></li>
+<li><a href="/zookeepers/<%= zookeeper.id %>"><%= zookeeper.username %></a> - <a href="/zoos/<%= zookeeper.id %>"><%= zookeeper.zoo %></a></li>
 <% end %>
 </ul>
 
