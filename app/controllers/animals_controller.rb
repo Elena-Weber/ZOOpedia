@@ -29,19 +29,9 @@ class AnimalsController < ApplicationController
         end
     end
 
-    # post '/animals' do
-    #     animal = Animal.new(params)
-    #     animal.zookeeper_id = current_user.id
-    #     #animal = current_user.animals.build(params)
-    #     if animal.save
-    #         redirect to "animals/#{@animal.id}"
-    #     else
-    #         redirect to "animals/new"
-    #     end
-    # end
-
     get '/animals/:id/edit' do
         if logged_in?
+            #binding.pry
             #@zookeepers = Zookeeper.all
             @animal = Animal.find(params[:id])
             if @animal.zookeeper_id != current_user.id #|| @animal.zookeeper_id == nil
@@ -60,22 +50,21 @@ class AnimalsController < ApplicationController
     end
 
     patch '/animals/:id' do
-        if logged_in? && @animal.zookeeper_id == current_user.id
-            @animal = Animal.find_by_id(params[:id])
-            params.delete("_method")
-            @animal.update(params)
-        end
-            #@animal.save
-        if @animal.update(params)
+        #binding.pry
+        @animal = Animal.find_by_id(params[:id])
+        if logged_in? && current_user.id == @animal.zookeeper_id
+            #params.delete("_method")
+            @animal.update(params[:animal])
+            @animal.save
             redirect to "/animals/#{@animal.id}"
         else
-            redirect to "animals/new"
+            redirect to "/animals"
         end
     end
 
     delete '/animals/:id' do
+        @animal = Animal.find_by_id(params[:id])
         if logged_in? && @animal.zookeeper_id == current_user.id
-            @animal = Animal.find_by_id(params[:id])
             @animal.delete
             redirect to '/animals'
         else
