@@ -19,7 +19,11 @@
         <%= yield %>
 
       <footer class="branding">
-      
+      <p>You're logged in as <%= current_user.username %></p>
+      <a href="/zookeepers/<%= current_user.id %>">Account</a>
+      <br>
+      <a href="/logout">Log out</a>
+      <br><br>
         <small>&copy; 2021 <strong>ZOOpedia</strong> - home of the world's best ZOOs (and their inhabitants) :)</small>
       </footer>
     </div>
