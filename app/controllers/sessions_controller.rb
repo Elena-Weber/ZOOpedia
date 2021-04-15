@@ -6,6 +6,7 @@ class SessionsController < ApplicationController
 
     post '/sessions/login' do
         zookeeper = Zookeeper.find_by(username: params[:username])
+        #binding.pry
         if zookeeper && zookeeper.authenticate(params[:password])
             session[:zookeeper_id] = zookeeper.id
             redirect to "/animals"

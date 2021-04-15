@@ -42,12 +42,12 @@ class AnimalsController < ApplicationController
 
     get '/animals/:id/edit' do
         if logged_in?
-            @zookeepers = Zookeeper.all
+            #@zookeepers = Zookeeper.all
             @animal = Animal.find(params[:id])
             if @animal.zookeeper_id != current_user.id #|| @animal.zookeeper_id == nil
                 redirect to "/animals"
             else
-                redirect to "/animals/edit"
+                erb :"/animals/edit"
             end
         else
             redirect to "/sessions/login"

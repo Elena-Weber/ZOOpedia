@@ -6,6 +6,7 @@ class ZoosController < ApplicationController
     end
 
     get '/zoos/:id' do 
+        #binding.pry
         @zookeeper = Zookeeper.find(params[:id])
         erb :'/zoos/show'
     end

@@ -19,7 +19,7 @@ class ApplicationController < Sinatra::Base
     end
 
     def current_user
-      @zookeeper ||= Zookeeper.find_by(id: session[:zookeeper_id])
+      @logged_in_zookeeper ||= Zookeeper.find_by(id: session[:zookeeper_id])
     end
   end
 
