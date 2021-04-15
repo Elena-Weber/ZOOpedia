@@ -54,7 +54,7 @@ class AnimalsController < ApplicationController
         end
     end
 
-    get '/animals/:id' do 
+    get '/animals/:id' do
         @animal = Animal.find_by_id(params[:id])
         erb :'/animals/show'
     end
