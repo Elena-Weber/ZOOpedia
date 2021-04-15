@@ -23,18 +23,16 @@ class SessionsController < ApplicationController
         erb :'sessions/signup'
     end
 
-    #post '/sessions/signup' do
-        #@zookeeper = Zookeeper.new(params)
-        #@zookeeper.save
-        # if @zookeeper && @zookeeper.save
-        #     session[:zookeeper_id] = @zookeeper.id
-        #    redirect to "/zookeepers/#{@zookeeper.id}"
-        # else
-        #     erb :"sessions/signup"
-        # OR
-        # redirect to "zookeepers/#{@zookeeper.id}"
-        # end
-    #end
+    post '/sessions/signup' do
+        @zookeeper = Zookeeper.new(params)
+        @zookeeper.save
+        if @zookeeper && @zookeeper.save
+            session[:zookeeper_id] = @zookeeper.id
+            redirect to "/zookeepers/#{@zookeeper.id}"
+        else
+            erb :"sessions/signup"
+        end
+    end
 
 end
 

@@ -19,10 +19,16 @@
         <%= yield %>
 
       <footer class="branding">
+      <% if logged_in? %>
       <p>You're logged in as <%= current_user.username %></p>
       <a href="/zookeepers/<%= current_user.id %>">Account</a>
       <br>
-      <a href="/logout">Log out</a>
+      <a href="/sessions/logout">Log out</a>
+      <% else %>
+      <p>You're not logged in</p><a href="/sessions/signup">Sign up</a>
+      <br>
+      <a href="/sessions/login">Log in</a>
+      <% end %>
       <br><br>
         <small>&copy; 2021 <strong>ZOOpedia</strong> - home of the world's best ZOOs (and their inhabitants) :)</small>
       </footer>

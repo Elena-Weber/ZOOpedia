@@ -18,12 +18,15 @@ class AnimalsController < ApplicationController
     post '/animals' do 
         @animal = Animal.new(params[:animal])
         @animal.zookeeper_id = current_user.id
-        
+        if @animal.save
         # if !params["zookeeper"]["username"].empty?
         #     @animal.user = User.create(username: params["user"]["username"])
         # end
         # @animal.save
         redirect to "animals/#{@animal.id}"
+        else
+            redirect to "animals/new"
+        end
     end
 
     # post '/animals' do
