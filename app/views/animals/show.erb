@@ -8,20 +8,20 @@
 <a href="/zoos/<%= @zookeeper %>"><%= @animal.zookeeper.zoo %></a>
 <br><br>
 <% if logged_in? && @animal.zookeeper_id == current_user.id %>
-<a href="/animals/<%= @animal.id %>/edit"><button>Edit</button></a>
-<br><br>
+<a href="/animals/<%= @animal.id %>/edit"><button class="btn">Edit</button></a>
+
 <form method="POST" action="/animals/<%= @animal.id %>">
 <input id="hidden" type="hidden" name="_method" value="DELETE" />
-<input type="submit" value="Delete" />
+<input class="btn" type="submit" value="Delete" />
 </form>
 <% end %>
 <br>
 <% if logged_in? %>
-<a href="/animals/new"><button>Create a new animal</button></a>
+<a href="/animals/new"><button class="btn">Create a new animal</button></a>
 <% end %>
 
 <br><br><br>
-<a href="/animals"><button>All our animals</button></a>
-<a href="/zoos"><button>All our ZOOs</button></a>
-<a href="/"><button>Homepage</button></a>
+<a href="/animals"><button class="btnhome">All our animals</button></a>
+<a href="/zoos"><button class="btnhome">All our ZOOs</button></a>
+<a href="/"><button class="btnhome">Homepage</button></a>
 

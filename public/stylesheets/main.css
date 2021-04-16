@@ -13,14 +13,14 @@
 
   /* --- Welcome Page Styles --- */
   body {
-    background-color: lightblue;
-    color: #333;
+    background-color: #91c788;
+    color: #27323a;
     font-family: Sans-Serif;
     line-height: 18px;
   }
 
   .wrapper {
-    background: #fff;
+    background: #feffde;
     -moz-box-shadow: 0 0 10px rgba(0,0,0,.3);
     -webkit-box-shadow: 0 0 10px rgba(0,0,0,.3);
     box-shadow: 0 0 10px rgba(0,0,0,.3);
@@ -77,14 +77,51 @@
   }
 
   footer.branding {
-    border-top: 2px solid #ccc;
+    border-top: 2px solid #52734d;
     margin-top: 20px;
     padding-top: 20px;
   }
 }
 
+a:link {
+  color: #27323a;
+}
+
+a:visited {
+  color: #52734d;
+}
+
+a:hover {
+  color: #52734d;
+}
+
 .error {
   color: red;
+}
+
+.btn {
+  padding: 5px;
+  margin: 3px;
+  background-color: #ddffbc;
+  border-radius: 5px;
+  box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2), 0 3px 10px 0 rgba(0,0,0,0.19);
+}
+
+.btn:hover {
+background-color: #91c788;
+}
+
+
+.btnhome {
+  padding: 5px;
+  margin: 3px;
+  background-color: #91c788;
+  border-radius: 5px;
+  box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2), 0 3px 10px 0 rgba(0,0,0,0.19);
+}
+
+.btnhome:hover {
+background-color: #ddffbc;
 }
 
 @media screen and (max-width: 600px) {
