@@ -8,8 +8,13 @@
 </ul>
 <br>
 
-<% if logged_in? %>
+<% if logged_in? && @zookeeper.id == current_user.id %>
 <a href="/animals/new"><button class="btn">Add a new animal</button></a>
+<a href="/zookeepers/<%= @zookeeper.id %>/edit"><button class="btn">Edit your profile</button></a>
+<form method="POST" action="/zookeepers/<%= @zookeeper.id %>">
+<input id="hidden" type="hidden" name="_method" value="DELETE" />
+<input class="btn" type="submit" value="Delete your profile" />
+</form>
 <% end %>
 
 <br><br><br>

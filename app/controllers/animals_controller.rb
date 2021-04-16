@@ -60,7 +60,7 @@ class AnimalsController < ApplicationController
     delete '/animals/:id' do
         @animal = Animal.find_by_id(params[:id])
         if logged_in? && @animal.zookeeper_id == current_user.id
-            @animal.delete
+            @animal.destroy
             flash[:alert] = "The animal has been deleted."
             redirect to '/animals'
         else

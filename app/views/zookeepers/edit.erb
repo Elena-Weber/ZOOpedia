@@ -1,0 +1,29 @@
+<h1>Edits for: <%= @zookeeper.username %></h1>
+<br>
+<form action="/zookeepers/<%= @zookeeper.id %>" method="POST">
+    <input id="hidden" type="hidden" name="_method" value="patch">
+
+    <label for="zookeeper[username]">Edit your username:</label>
+    <input type="text" name="zookeeper[username]" value="<%= @zookeeper.username %>" id="zookeeper_username">
+    <br><br>
+
+    <label for="zookeeper[email]">Edit your email:</label>
+    <input type="email" name="zookeeper[email]" value="<%= @zookeeper.email %>" id="zookeeper_email">
+    <br><br>
+
+    <label for="zookeeper[password]">Edit your password:</label>
+    <input type="email" name="zookeeper[password]" value="<%= @zookeeper.password %>" id="zookeeper_password">
+    
+    <br><br>
+
+    <label for="zookeeper[zoo]">Edit your ZOO's name:</label>
+    <input type="text" name="zookeeper[zoo]" value="<%= @zookeeper.zoo %>" id="zookeeper_zoo">
+    <br><br>
+
+    <input class="btn" type="submit" value="Update the profile">
+
+    </form>
+    <br><br>
+<a href="/animals"><button class="btnhome">All our animals</button></a>
+<a href="/zoos"><button class="btnhome">All our ZOOs</button></a>
+<a href="/"><button class="btnhome">Homepage</button></a>

@@ -8,11 +8,11 @@
 <a href="/zoos/<%= @zookeeper %>"><%= @animal.zookeeper.zoo %></a>
 <br><br>
 <% if logged_in? && @animal.zookeeper_id == current_user.id %>
-<a href="/animals/<%= @animal.id %>/edit"><button class="btn">Edit</button></a>
+<a href="/animals/<%= @animal.id %>/edit"><button class="btn">Edit the animal</button></a>
 
 <form method="POST" action="/animals/<%= @animal.id %>">
 <input id="hidden" type="hidden" name="_method" value="DELETE" />
-<input class="btn" type="submit" value="Delete" />
+<input class="btn" type="submit" value="Delete the animal" />
 </form>
 <% end %>
 <br>

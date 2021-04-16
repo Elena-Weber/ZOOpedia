@@ -1,6 +1,6 @@
 class Zookeeper < ActiveRecord::Base
 
-    has_many :animals
+    has_many :animals, dependent: :destroy
 
     has_secure_password
 
