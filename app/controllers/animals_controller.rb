@@ -29,6 +29,7 @@ class AnimalsController < ApplicationController
         if logged_in?
             @animal = Animal.find(params[:id])
             if @animal.zookeeper_id != current_user.id
+                flash[:alert] = "Oops... The animal is not in your ZOO, you cannot edit it."
                 redirect to "/animals"
             else
                 erb :"/animals/edit"
@@ -59,6 +60,7 @@ class AnimalsController < ApplicationController
         @animal = Animal.find_by_id(params[:id])
         if logged_in? && @animal.zookeeper_id == current_user.id
             @animal.delete
+            flash[:alert] = "The animal has been deleted."
             redirect to '/animals'
         else
             redirect to "/sessions/login"
