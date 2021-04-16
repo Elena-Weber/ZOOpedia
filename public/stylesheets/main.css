@@ -36,7 +36,7 @@
   }
 
   h2 {
-    border-bottom: 2px solid #ccc;
+    border-bottom: 2px solid #52734d;
     font-size: 24px;
     line-height: 36px;
     margin-bottom: 16px;
@@ -61,8 +61,8 @@
   }
 
   .sidebar {
-    background: #eee;
-    border: 1px solid #ccc;
+    background: #ddffbc;
+    border: 1px solid #52734d;
     float: right;
     padding: 2.08333333333%; /* 5px / 240px */
     width: 30%; /* 240px / 800px */
@@ -81,6 +81,13 @@
     margin-top: 20px;
     padding-top: 20px;
   }
+}
+
+.centering {
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  width: 100%;
 }
 
 a:link {
@@ -151,7 +158,7 @@ background-color: #ff7171;
   .sidebar {
     background: transparent;
     border: none;
-    border-top: 2px solid #ccc;
+    border-top: 2px solid #52734d;
     padding: 0;
   }
 

@@ -1,22 +1,25 @@
 <div class="container">
-  <header><img src="images/corneal-small.png" class="img-responsive main-image"></header>
-  <div class="col-md-8 col-md-offset-2">
-    <h2>Sinatra Template Default Page</h2>
+  <header><img src="images/grass-small.jpeg" class="img-responsive main-image centering"></header>
+  <div class="col-md-8 col-md-offset-2"><br>
+    <h2>Welcome to ZOOpedia!</h2>
 
     <div class="content">
-      <p>Welcome to the Sinatra Template! If you're seeing this page, then everything is working
-      as expected. To get started, delete this file (<code>app/views/welcome.erb)</code> and begin adding
-      your own actions to <code>application_controller.rb</code>. For more information, see the <a href="https://github.com/thebrianemory/corneal">README</a>.</p>
+      <p>ZOOpedia is a free database of the best ZOOs from all over the world. Feel free to browse through our ZOOs and our animals clicking the buttons below.</p>
+      
+      <a href="/animals"><button class="btnhome">All our animals</button></a>
+      <a href="/zoos"><button class="btnhome">All our ZOOs</button></a>
+      
+      <p><br><em>* You don't need to register to use the website.</em></p>
     </div>
 
     <div class="sidebar">
-      <h3>Environment</h3>
-      <ul>
-        <li><b>Ruby:</b> <%= RUBY_VERSION %></li>
-        <li><b>Environment:</b> <%= ENV["RACK_ENV"] %></li>
-        <li><b>Server:</b> <%= @env["SERVER_SOFTWARE"] %></li>
-        <li><b>Port:</b> <%= @env["SERVER_PORT"] %></li>
-      </ul>
+      <p>If you're a ZOOkeeper, you can sign up or log in below.</p>
+      <% if logged_in? %>
+      <p>You're logged in as <%= current_user.username %></p>
+      <p>View your <a href="/zookeepers/<%= current_user.id %>">Account</a> or <a href="/sessions/logout">Log out</a></p>
+      <% else %>
+      <p>You're not logged in</p><a href="/sessions/signup">Sign up</a> or <a href="/sessions/login">Log in</a>
+      <% end %>
     </div>
 
   </div>
