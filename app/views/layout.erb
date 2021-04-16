@@ -15,7 +15,9 @@
   </head>
   <body>
     <div class="wrapper">
-
+<% flash.keys.each do |err_key| %>
+<h4 class="error"><%= flash[err_key] %></h4>
+<% end %>
         <%= yield %>
 
       <footer class="branding">

@@ -11,6 +11,7 @@ class SessionsController < ApplicationController
             session[:zookeeper_id] = zookeeper.id
             redirect to "/animals"
         else
+            flash[:notice] = "Oops... Something's wrong. Please make sure your username and/or password are correct."
             redirect to "/sessions/login"
         end
     end
@@ -31,6 +32,7 @@ class SessionsController < ApplicationController
             session[:zookeeper_id] = @zookeeper.id
             redirect to "/zookeepers/#{@zookeeper.id}"
         else
+            flash[:notice] = "Please provide the signup data provided to your zoo by our representative."
             erb :"sessions/signup"
         end
     end

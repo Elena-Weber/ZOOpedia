@@ -19,10 +19,6 @@ class AnimalsController < ApplicationController
         @animal = Animal.new(params[:animal])
         @animal.zookeeper_id = current_user.id
         if @animal.save
-        # if !params["zookeeper"]["username"].empty?
-        #     @animal.user = User.create(username: params["user"]["username"])
-        # end
-        # @animal.save
         redirect to "animals/#{@animal.id}"
         else
             redirect to "animals/new"
@@ -31,15 +27,14 @@ class AnimalsController < ApplicationController
 
     get '/animals/:id/edit' do
         if logged_in?
-            #binding.pry
-            #@zookeepers = Zookeeper.all
             @animal = Animal.find(params[:id])
-            if @animal.zookeeper_id != current_user.id #|| @animal.zookeeper_id == nil
+            if @animal.zookeeper_id != current_user.id
                 redirect to "/animals"
             else
                 erb :"/animals/edit"
             end
         else
+            flash[:alert] = "You need to log in to view this page. It is for registered zookepers only."
             redirect to "/sessions/login"
         end
     end
@@ -50,10 +45,8 @@ class AnimalsController < ApplicationController
     end
 
     patch '/animals/:id' do
-        #binding.pry
         @animal = Animal.find_by_id(params[:id])
         if logged_in? && current_user.id == @animal.zookeeper_id
-            #params.delete("_method")
             @animal.update(params[:animal])
             @animal.save
             redirect to "/animals/#{@animal.id}"
