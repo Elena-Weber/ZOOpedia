@@ -2,13 +2,13 @@
 <p>* If you represent a ZOO not listed on our website and would like to add it to our database, please contact us at <strong>newzoo@zoopedia.com</strong></p>
 <br>
 <form method="POST" action="/sessions/signup">
-    Zoo: <input type="text" name="zoo" placeholder="zoo"><br />
+    Zoo: <input type="text" required="required" name="zoo" placeholder="zoo"><br />
     <br>
-    Username: <input type="text" name="username" placeholder="username"><br />
+    Username: <input type="text" required="required" name="username" placeholder="username"><br />
     <br>
-    Email: <input type="email" name="email" placeholder="email"><br />
+    Email: <input type="email" required="required" name="email" placeholder="email"><br />
     <br>
-    Password: <input type="password" name="password" placeholder="password"><br />
+    Password: <input type="password" required="required" name="password" placeholder="password"><br />
     <br>
     <input type="submit" value="Sign up">
 </form>

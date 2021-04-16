@@ -8,7 +8,8 @@ class SessionsController < ApplicationController
         zookeeper = Zookeeper.find_by(username: params[:username])
         if zookeeper && zookeeper.authenticate(params[:password])
             session[:zookeeper_id] = zookeeper.id
-            redirect to "/animals"
+            flash[:notice] = "You've successfully logged in."
+            redirect to "/zookeepers/#{zookeeper.id}"
         else
             flash[:notice] = "Oops... Something's wrong. Please make sure your username and/or password are correct."
             redirect to "/sessions/login"

@@ -42,6 +42,7 @@ class AnimalsController < ApplicationController
 
     get '/animals/:id' do
         @animal = Animal.find_by_id(params[:id])
+        @zookeeper = @animal.zookeeper_id
         erb :'/animals/show'
     end
 
