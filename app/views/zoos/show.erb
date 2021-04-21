@@ -2,9 +2,9 @@
 
 <h3>These animals live in this zoo:</h3>
 <ul>
-  <%@zookeeper.animals.each do |animal|%>
-  <li><a href="/animals/<%= animal.id %>"><%= animal.animal_type.capitalize%></a></li>
-  <%end%>
+    <%@zookeeper.animals.each do |animal|%>
+    <li><a href="/animals/<%= animal.id %>"><%= animal.animal_type.capitalize%></a></li>
+    <%end%>
 </ul>
 <br>
 

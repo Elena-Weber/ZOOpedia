@@ -16,7 +16,7 @@ class ZookeepersController < ApplicationController
         end
     end
 
-    # If you want to see all the zookeepers, uncomment this method
+    # If you want to see the list of all the zookeepers, uncomment this method
 
     # get '/zookeepers/new' do 
     #     @zookeepers = Zookeeper.all
