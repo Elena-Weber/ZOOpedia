@@ -1,6 +1,13 @@
 <h1>Animals in our zoos:</h1>
 <ul><% @animals.each do |animal|%>
 <li><a href="/animals/<%= animal.id %>"><%= animal.animal_type.capitalize %></a> named <%= animal.name %></li>
+
+<% if logged_in? && animal.zookeeper_id == current_user.id %>
+<form method="POST" action="/animals/<%= animal.id %>">
+<input id="hidden" type="hidden" name="_method" value="DELETE" />
+<input class="btnred" type="submit" value="Delete the animal" />
+</form>
+<% end %>
 <% end %>
 </ul>
 

@@ -1,10 +1,12 @@
 class AnimalsController < ApplicationController
 
+    # display all animals
     get '/animals' do
         @animals = Animal.all
         erb :'/animals/index' 
     end
 
+    # new animal form
     get '/animals/new' do
         if logged_in?
         @animals = Animal.all
@@ -15,6 +17,7 @@ class AnimalsController < ApplicationController
         end
     end
 
+    # save new animal
     post '/animals' do 
         @animal = Animal.new(params[:animal])
         @animal.zookeeper_id = current_user.id
@@ -25,6 +28,7 @@ class AnimalsController < ApplicationController
         end
     end
 
+    # edit animal from
     get '/animals/:id/edit' do
         if logged_in?
             @animal = Animal.find(params[:id])
@@ -40,12 +44,14 @@ class AnimalsController < ApplicationController
         end
     end
 
+    # display one animal
     get '/animals/:id' do
         @animal = Animal.find_by_id(params[:id])
         @zookeeper = @animal.zookeeper_id
         erb :'/animals/show'
     end
 
+    # edit animal in db
     patch '/animals/:id' do
         @animal = Animal.find_by_id(params[:id])
         if logged_in? && current_user.id == @animal.zookeeper_id
@@ -57,6 +63,7 @@ class AnimalsController < ApplicationController
         end
     end
 
+    # delete animal
     delete '/animals/:id' do
         @animal = Animal.find_by_id(params[:id])
         if logged_in? && @animal.zookeeper_id == current_user.id

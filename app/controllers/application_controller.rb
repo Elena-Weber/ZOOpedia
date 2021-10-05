@@ -10,10 +10,12 @@ class ApplicationController < Sinatra::Base
     register Sinatra::Flash
   end
 
+  # main page
   get "/" do
     erb :welcome
   end
 
+  # authorization
   helpers do
     def logged_in?
       session[:zookeeper_id]

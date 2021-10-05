@@ -1,9 +1,11 @@
 class SessionsController < ApplicationController
 
+    # displaying login page
     get '/sessions/login' do
         erb :'sessions/login'
     end
 
+    # starting a session
     post '/sessions/login' do
         zookeeper = Zookeeper.find_by(username: params[:username])
         if zookeeper && zookeeper.authenticate(params[:password])
@@ -16,16 +18,19 @@ class SessionsController < ApplicationController
         end
     end
 
+    # loggin out
     get '/sessions/logout' do
         session.clear
         flash[:alert] = "You have successfully logged out of the system."
         redirect "/animals"
     end
 
+    # display signup page
     get '/sessions/signup' do
         erb :'sessions/signup'
     end
 
+    # signing up user
     post '/sessions/signup' do
         @zookeeper = Zookeeper.new(params)
         @zookeeper.save

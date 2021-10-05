@@ -1,10 +1,12 @@
 class ZookeepersController < ApplicationController
 
+    # display all users
     get '/zookeepers' do
         @zookeepers = Zookeeper.all
         erb :'/zookeepers/index' 
     end
 
+    # saving new user
     post '/zookeepers' do
         @zookeeper = Zookeeper.new(params)
         @zookeeper.save
@@ -23,6 +25,7 @@ class ZookeepersController < ApplicationController
     #     erb :'/zookeepers/new'
     # end
 
+    # edit user form
     get '/zookeepers/:id/edit' do
         if logged_in?
             @zookeeper = Zookeeper.find(params[:id])
@@ -38,11 +41,13 @@ class ZookeepersController < ApplicationController
         end
     end
     
+    # display one user
     get '/zookeepers/:id' do 
         @zookeeper = Zookeeper.find(params[:id])
         erb :'/zookeepers/show'
     end
 
+    # edit user in db
     patch '/zookeepers/:id' do
         @zookeeper = Zookeeper.find_by_id(params[:id])
         if logged_in? && current_user.id == @zookeeper.id
@@ -55,6 +60,7 @@ class ZookeepersController < ApplicationController
         end
     end
 
+    # delete user
     delete '/zookeepers/:id' do
         @zookeeper = Zookeeper.find_by_id(params[:id])
         if logged_in? && @zookeeper.id == current_user.id
